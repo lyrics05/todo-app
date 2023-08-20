@@ -58,7 +58,7 @@ const Input = () => {
                                     onChange={() => handleCheckboxChange(d.id)}
                                 />
                             </label>
-                           <li> {d.text}</li>
+                           <li className={d.done? styles.textoSub:null}> {d.text}</li>
                             <img onClick={()=>handleDelete(d.id)} src="/close.svg" alt="" />
                         </div>
                     ))}
@@ -71,3 +71,54 @@ const Input = () => {
 }
 
 export default Input;
+
+/* const Input = ()=>{
+    const [data,setData] = useState([])
+    const [input,setInput] = useState("")
+    function handleSubmit(e){
+        e.preventDefault()
+        const newTask = {
+            id:data.length +1,
+            text:input,
+            completed: false
+        }
+      setData([...data, newTask])
+    }
+    function handleChange(e){
+        setInput(e.target.value)
+    }
+    function handleCheckBox(id){
+       const newData =  data.map(task=>{
+            if(task.id===id){
+                return{...task, completed:!task.completed}
+            }
+            return task
+        })
+        setData(newData)
+    }
+    function handleDelete(id){
+        const deleted  = data.filter(d=>d.id!==id)
+        setData(deleted)
+    }
+   return(
+    <div>
+        <form onSubmit={(e)=> handleSubmit(e)}>
+            <input onChange={handleChange} type="text" />
+            <button>add</button>
+        </form>
+            <ul>
+                {data?.map(d=>{
+                    return(
+                      <div>
+                         <input onChange={()=>handleCheckBox(d.id)} type="checkbox" value={d.completed}/>
+                         <li className={d.completed? styles.textoSub:null}>{d.text}</li>
+                         <img onClick={()=>handleDelete(d.id)} src="/close.svg" alt="" />
+                      </div>
+                    )
+                })}
+            </ul>
+    </div>
+   )
+}
+
+export default Input */

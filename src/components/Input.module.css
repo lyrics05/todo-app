@@ -36,6 +36,10 @@ input{
     padding: 10px;
     border-radius: 5px;
 }
+.textoSub{
+    text-decoration: line-through;
+    color: green;
+}
 button{
     background-color:#7D8E95;
     border: none;
